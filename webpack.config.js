@@ -29,5 +29,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     open: true,
+    allowedHosts: "all",
   },
 };
