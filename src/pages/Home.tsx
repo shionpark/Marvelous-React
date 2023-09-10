@@ -3,7 +3,7 @@ import Characters from "../components/Characters";
 const Home = () => {
   return (
     <>
-      <h1>Marvel Characters List</h1>
+      <h1 style={{ textAlign: "center" }}>Marvel Characters List</h1>
       <Characters />
     </>
   );
