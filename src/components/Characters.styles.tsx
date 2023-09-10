@@ -42,3 +42,37 @@ export const CharacterName = styled.h2`
   overflow: hidden;
   text-overflow: ellipsis; /* 긴 텍스트에 대한 말줄임 표시 */
 `;
+
+export const ImageAndTitleWrapper = styled.div`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 10px;
+  }
+  background-color: rgb(229, 36, 42, 0.9);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0 0 50px 0;
+`;
+
+export const DetailImg = styled.img`
+  height: 300px;
+  width: 300px;
+  font-size: 40px;
+  padding: 20px;
+`;
+
+export const DetailTitle = styled.h1`
+  font-size: 55px;
+  text-transform: uppercase;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  flex: 1;
+`;
+
+export const DetailGenres = styled.h1`
+  font-size: 30px;
+  text-transform: uppercase;
+`;

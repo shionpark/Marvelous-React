@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import {
+  ImageAndTitleWrapper,
+  DetailImg,
+  DetailTitle,
+  DetailGenres,
+} from "./Characters.styles";
 
 interface CharacterDetailProps {
   name: string;
@@ -45,31 +51,31 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({
 
   return (
     <>
-      <div>
-        <img src={coverImg} />
-        <h1>{name}</h1>
-      </div>
+      <ImageAndTitleWrapper>
+        <DetailImg src={coverImg} />
+        <DetailTitle>{name}</DetailTitle>
+      </ImageAndTitleWrapper>
       {loading ? "Loading..." : <p>{data?.description}</p>}
       <div>
-        <h1>Comics</h1>
+        <DetailGenres>Comics</DetailGenres>
         {comics.map((i: any, index: number) => (
           <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
         ))}
       </div>
       <div>
-        <h1>Stories</h1>
+        <DetailGenres>Stories</DetailGenres>
         {stories.map((i: any, index: number) => (
           <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
         ))}
       </div>
       <div>
-        <h1>Series</h1>
+        <DetailGenres>Series</DetailGenres>
         {series.map((i: any, index: number) => (
           <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
         ))}
       </div>
       <div>
-        <h1>Events</h1>
+        <DetailGenres>Events</DetailGenres>
         {events.map((i: any, index: number) => (
           <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
         ))}
