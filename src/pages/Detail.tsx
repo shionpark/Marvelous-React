@@ -10,6 +10,10 @@ interface CharacterDetails {
     path: string;
     extension: string;
   };
+  comics: { items: any };
+  series: { items: any };
+  stories: { items: any };
+  events: { items: any };
 }
 
 function Detail({}) {
@@ -39,6 +43,10 @@ function Detail({}) {
         <CharacterDetail
           name={data.name}
           coverImg={`${data.thumbnail.path}.${data.thumbnail.extension}`}
+          comics={data.comics.items}
+          series={data.series.items}
+          stories={data.stories.items}
+          events={data.events.items}
         />
       ) : null}
     </>
