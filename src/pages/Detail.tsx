@@ -1,20 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { API_URL, CharacterDetails } from "../configs/commonConfig";
 import CharacterDetail from "../components/CharacterDetail";
-
-interface CharacterDetails {
-  id: number;
-  name: string;
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
-  comics: { items: any };
-  series: { items: any };
-  stories: { items: any };
-  events: { items: any };
-}
 
 function Detail({}) {
   const { id } = useParams();
@@ -22,11 +9,7 @@ function Detail({}) {
   const [data, setData] = useState<CharacterDetails | null>(null);
 
   const getData = async () => {
-    const json = await (
-      await fetch(
-        `https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters/${id}`
-      )
-    ).json();
+    const json = await (await fetch(`${API_URL}/${id}`)).json();
     setData(json.data.results[0]);
     setLoading(false);
   };

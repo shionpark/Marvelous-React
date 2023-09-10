@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+
+import {
+  CharacterDetailProps,
+  CharacterDetails,
+} from "../configs/commonConfig";
+
 import {
   ImageAndTitleWrapper,
   DetailImg,
   DetailTitle,
   DetailGenres,
 } from "./Characters.styles";
-
-interface CharacterDetailProps {
-  name: string;
-  coverImg: string;
-  comics: any;
-  series: any;
-  stories: any;
-  events: any;
-}
-
-interface CharacterDetails {
-  description: any;
-}
 
 const CharacterDetail: React.FC<CharacterDetailProps> = ({
   name,

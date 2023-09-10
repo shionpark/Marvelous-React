@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { API_URL, MarvelCharacter } from "../configs/commonConfig";
 import {
   CharactersContainer,
   CharacterContainer,
@@ -27,24 +27,13 @@ const Character = ({
   );
 };
 
-interface MarvelCharacter {
-  id: number;
-  name: string;
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
-}
-
 function Characters() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<MarvelCharacter[]>([]);
 
   const getData = async () => {
     const json = await (
-      await fetch(
-        "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023"
-      )
+      await fetch(`${API_URL}?limit=50&orderBy=modified&series=24229,1058,2023`)
     ).json();
     setData(json.data.results);
     setLoading(false);
