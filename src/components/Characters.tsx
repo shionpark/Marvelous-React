@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import {
+  CharactersContainer,
+  CharacterContainer,
+  CharacterImage,
+  CharacterName,
+} from "./Characters.styles";
 
 const Character = ({
   id,
@@ -12,12 +18,12 @@ const Character = ({
   coverImg: string;
 }) => {
   return (
-    <>
+    <CharacterContainer>
       <Link to={`/character/${id}`}>
-        <img src={coverImg} />
-        <h2>{name}</h2>
+        <CharacterImage src={coverImg} />
+        <CharacterName>{name}</CharacterName>
       </Link>
-    </>
+    </CharacterContainer>
   );
 };
 
@@ -49,22 +55,20 @@ function Characters() {
   }, []);
 
   return (
-    <>
+    <CharactersContainer>
       {loading ? (
         <p>loading...</p>
       ) : (
-        <div>
-          {data.map((item) => (
-            <Character
-              key={item.id}
-              id={item.id}
-              name={item.name}
-              coverImg={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-            />
-          ))}
-        </div>
+        data.map((item) => (
+          <Character
+            key={item.id}
+            id={item.id}
+            name={item.name}
+            coverImg={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+          />
+        ))
       )}
-    </>
+    </CharactersContainer>
   );
 }
 
