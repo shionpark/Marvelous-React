@@ -1,9 +1,15 @@
 import Characters from "../components/Characters";
+import styled from "styled-components";
+
+const Title = styled.h1`
+  text-align: center;
+  font-size: 50px;
+`;
 
 const Home = () => {
   return (
     <>
-      <h1 style={{ textAlign: "center" }}>Marvel Characters List</h1>
+      <Title>Marvel Characters List</Title>
       <Characters />
     </>
   );
