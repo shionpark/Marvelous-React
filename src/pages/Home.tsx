@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 interface MarvelCharacter {
   id: number;
@@ -10,23 +12,25 @@ interface MarvelCharacter {
 }
 
 function Home() {
-  const [data, setData] = useState<MarvelCharacter[]>([]);
   const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<MarvelCharacter[]>([]);
+
+  let { id } = useParams();
 
   const getData = async () => {
-    const response = await fetch(
-      "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023"
-    );
-    const jsonData = await response.json();
-    const marvelData = jsonData.data.results;
-    console.log(marvelData);
-    setData(marvelData);
+    const json = await (
+      await fetch(
+        "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters?limit=50&orderBy=modified&series=24229,1058,2023"
+      )
+    ).json();
+    setData(json.data.results);
     setLoading(false);
   };
 
   useEffect(() => {
     getData();
   }, []);
+  console.log(data);
 
   return (
     <>
@@ -34,14 +38,14 @@ function Home() {
       {loading ? (
         <p>loading...</p>
       ) : (
-        <ul>
-          {data.map((i) => (
-            <>
-              <li key={i.id}>{i.name}</li>
-              <img src={`${i.thumbnail.path}.${i.thumbnail.extension}`} />
-            </>
+        <div>
+          {data.map((item) => (
+            <Link to={`/character/${item.id}`} key={item.id}>
+              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} />
+              <h2>{item.name}</h2>
+            </Link>
           ))}
-        </ul>
+        </div>
       )}
     </>
   );
