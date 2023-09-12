@@ -1,39 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { API_URL, MarvelCharacter } from "../configs/commonConfig";
-import {
-  CharactersContainer,
-  CharacterContainer,
-  CharacterImage,
-  CharacterName,
-} from "./Characters.styles";
-
-const Character = ({
-  id,
-  name,
-  coverImg,
-}: {
-  id: number;
-  name: string;
-  coverImg: string;
-}) => {
-  return (
-    <CharacterContainer>
-      <Link to={`/character/${id}`}>
-        <CharacterImage src={coverImg} />
-        <CharacterName>{name}</CharacterName>
-      </Link>
-    </CharacterContainer>
-  );
-};
+import { Loading, CharactersContainer } from "./Characters.styles";
+import Character from "./Character";
 
 function Characters() {
+  const LIMIT_PARAMS = "?limit=10&orderBy=modified&series=24229,1058,2023";
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<MarvelCharacter[]>([]);
 
   const getData = async () => {
     const json = await (
-      await fetch(`${API_URL}?limit=50&orderBy=modified&series=24229,1058,2023`)
+      await fetch(`${API_URL}/characters${LIMIT_PARAMS}`)
     ).json();
     setData(json.data.results);
     setLoading(false);
@@ -44,20 +21,22 @@ function Characters() {
   }, []);
 
   return (
-    <CharactersContainer>
+    <>
       {loading ? (
-        <p>loading...</p>
+        <Loading>loading...</Loading>
       ) : (
-        data.map((item) => (
-          <Character
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            coverImg={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-          />
-        ))
+        <CharactersContainer>
+          {data.map((item) => (
+            <Character
+              key={item.id}
+              characterId={item.id}
+              name={item.name}
+              coverImg={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+            />
+          ))}
+        </CharactersContainer>
       )}
-    </CharactersContainer>
+    </>
   );
 }
 

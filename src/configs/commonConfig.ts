@@ -1,5 +1,4 @@
-export const API_URL =
-  "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters";
+export const API_URL = "https://marvel-proxy.nomadcoders.workers.dev/v1/public";
 
 export interface CharacterDetailProps {
   name: string;
@@ -34,4 +33,18 @@ export interface CharacterDetails {
   series: { items: any };
   stories: { items: any };
   events: { items: any };
+}
+
+export interface IMarvelContent {
+  id?: number;
+  name?: string;
+  description?: string;
+  modified?: string;
+  thumbnail?: any;
+  resourceURI?: string;
+  comics?: any;
+  series?: any;
+  stories?: any;
+  events?: any;
+  urls?: URL[];
 }

@@ -10,7 +10,7 @@ export const RootRouter = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/character/:id" element={<Detail />} />
+        <Route path="/character/:characterId" element={<Detail />} />
       </Routes>
       <Footer />
     </>
