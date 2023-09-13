@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { API_URL, MarvelCharacter } from "../configs/commonConfig";
+import { API_URL, MarvelCharacter } from "../types/commonConfig";
 import { Loading, CharactersContainer } from "./Characters.styles";
 import Character from "./Character";
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { API_URL, CharacterDetails } from "../configs/commonConfig";
+import { API_URL, CharacterDetails } from "../types/commonConfig";
 import CharacterDetail from "../components/CharacterDetail";
 
 function Detail() {
