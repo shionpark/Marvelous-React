@@ -7,17 +7,17 @@ import {
 } from "./Characters.styles";
 
 const Character = ({
-  characterId,
+  id,
   name,
   coverImg,
 }: {
-  characterId: number;
+  id: number;
   name: string;
   coverImg: string;
 }) => {
   return (
     <CharacterContainer>
-      <Link to={`/character/${characterId}`}>
+      <Link to={`/character/${id}`}>
         <CharacterImage src={coverImg} />
         <CharacterName>{name}</CharacterName>
       </Link>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-import { CharacterDetailProps, CharacterDetails } from "../types/commonConfig";
+import { CharacterDetailProps, CharacterDetails } from "../types";
 
 import {
   ImageAndTitleWrapper,

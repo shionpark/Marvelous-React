@@ -1,5 +1,3 @@
-export const API_URL = "https://marvel-proxy.nomadcoders.workers.dev/v1/public";
-
 export interface CharacterDetailProps {
   name: string;
   coverImg: string;
