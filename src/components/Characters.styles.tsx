@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Loading = styled.h1`
+  margin: 50px 0;
+  text-align: center;
+`;
+
 export const CharactersContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);

@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "lib": ["ES2020", "DOM"],
     "target": "ES5",
     "module": "ESNext",
@@ -8,11 +12,7 @@
     "sourceMap": true,
     "strict": true,
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["./*"]
-    }
+    "jsx": "react-jsx"
   },
   "exclude": ["node_modules"]
 }
