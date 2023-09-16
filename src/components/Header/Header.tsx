@@ -1,14 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-import styled from "styled-components";
-
-export const Logo = styled.img`
-  width: 130px;
-  height: 50px;
-  margin: 0 auto;
-  display: block;
-`;
+import { Logo } from "./Header.styles";
 
 function Header() {
   return (

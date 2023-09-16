@@ -7,8 +7,8 @@ import {
   getSeries,
   getStories,
   getEvents,
-} from "@/util/api";
-import CharacterDetail from "@/components/CharacterDetail";
+} from "@/utils/api";
+import { CharacterDetail } from "@/components";
 
 function Detail() {
   const { id } = useParams();

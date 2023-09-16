@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { MarvelCharacter } from "@/types";
-import { getCharacterList } from "@/util/api";
+import { getCharacterList } from "@/utils/api";
 import { Loading, CharactersContainer } from "./Characters.styles";
 import Character from "./Character";
 

@@ -1,4 +1,4 @@
-export const API_URL =
+export const BASE_URL =
   "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters";
 
 export const LIMIT_PARAMS_CHARACTERS =
