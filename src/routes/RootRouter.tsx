@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "@/App";
 import { Home, Detail } from "../pages";
 
-const router = createBrowserRouter([
+const RootRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,
@@ -22,4 +22,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router;
+export default RootRouter;
