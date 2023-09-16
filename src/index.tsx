@@ -11,6 +11,6 @@ const appRoot = CreateDOM.createRoot(root);
 appRoot.render(
   <React.StrictMode>
     <GlobalStyles />
-    <RouterProvider router={router} />;
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
