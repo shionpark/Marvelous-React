@@ -1,13 +1,16 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom"; // BrowserRouter 추가
-import { RootRouter } from "./routes";
+import { Outlet } from "react-router-dom";
 
-const App = () => {
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+function App() {
   return (
-    <Router>
-      <RootRouter />
-    </Router>
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
   );
-};
+}
 
 export default App;
