@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getCharacterList } from "@/utils/api";
+import { MarvelCharacter } from "@/types";
 import { Loading, CharactersContainer } from "./Characters.styles";
 import Character from "./Character";
-
-interface MarvelCharacter {
-  id: number;
-  name: string;
-  thumbnail: {
-    path: string;
-    extension: string;
-  };
-}
 
 function Characters() {
   const [loading, setLoading] = useState(true);
