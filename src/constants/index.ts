@@ -1,5 +1,6 @@
-export const API_URL =
-  "https://marvel-proxy.nomadcoders.workers.dev/v1/public/characters";
+export const BASE_URL = "https://marvel-proxy.nomadcoders.workers.dev";
+
+export const GET_CHARACTERS = "/v1/public/characters";
 
 export const LIMIT_PARAMS_CHARACTERS =
   "?limit=10&orderBy=modified&series=24229,1058,2023";

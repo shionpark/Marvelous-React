@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 import {
   CharacterContainer,
   CharacterImage,
   CharacterName,
 } from "./Characters.styles";
 
-const Character = ({
-  id,
-  name,
-  coverImg,
-}: {
+interface CharacterProps {
   id: number;
   name: string;
   coverImg: string;
-}) => {
+}
+
+const Character = ({ id, name, coverImg }: CharacterProps) => {
+  const navigate = useNavigate();
   return (
     <CharacterContainer>
-      <Link to={`/character/${id}`}>
+      <div onClick={() => navigate(`/character/${id}`)}>
         <CharacterImage src={coverImg} />
         <CharacterName>{name}</CharacterName>
-      </Link>
+      </div>
     </CharacterContainer>
   );
 };

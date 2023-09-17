@@ -1,18 +1,25 @@
 import React from "react";
-import { Route, Routes } from "react-router";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { createBrowserRouter } from "react-router-dom";
+
+import App from "@/App";
 import { Home, Detail } from "../pages";
 
-export const RootRouter = () => {
-  return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/character/:id" element={<Detail />} />
-      </Routes>
-      <Footer />
-    </>
-  );
-};
+const RootRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Home />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/character/:id",
+        element: <Detail />,
+      },
+    ],
+  },
+]);
+
+export default RootRouter;

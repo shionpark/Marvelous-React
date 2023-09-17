@@ -7,10 +7,10 @@ import {
   getSeries,
   getStories,
   getEvents,
-} from "@/util/api";
-import CharacterDetail from "@/components/CharacterDetail";
+} from "@/utils/api";
+import { GenreDetails } from "@/components/CharacterDetail";
 
-function Detail() {
+const Detail = () => {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
@@ -26,12 +26,6 @@ function Detail() {
     const jsonSeries = await (await getSeries(id)).json();
     const jsonStories = await (await getStories(id)).json();
     const jsonEvents = await (await getEvents(id)).json();
-
-    console.log("Character : ", json.data.results[0]);
-    console.log("jsonComics: ", jsonComics);
-    console.log("jsonSeries: ", jsonSeries);
-    console.log("jsonStories: ", jsonStories);
-    console.log("jsonEvents: ", jsonEvents.data.results);
 
     setData(json.data.results[0]);
     setComics(jsonComics.data.results);
@@ -51,48 +45,14 @@ function Detail() {
         "Loading..."
       ) : (
         <>
-          <h1>{data?.name}</h1>
-          {/* {data?.comics.items.map((item: any) => (
-            <ul key={item.id}>
-              <li>{item.name}</li>
-            </ul>
-          ))} */}
-          {/* <h2>1. Comic</h2>
-          {comics.map((item: any) => (
-            <ul key={item.id}>
-              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} />
-              <li>{item.title}</li>
-              <p>{item.description}</p>
-            </ul>
-          ))}
-          <h2>1. Comic</h2>
-          {series.map((item: any) => (
-            <ul key={item.id}>
-              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} />
-              <li>{item.title}</li>
-              <p>{item.description}</p>
-            </ul>
-          ))}
-          <h2>1. Comic</h2>
-          {stories.map((item: any) => (
-            <ul key={item.id}>
-              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} />
-              <li>{item.title}</li>
-              <p>{item.description}</p>
-            </ul>
-          ))}
-          <h2>1. Comic</h2>
-          {comics.map((item: any) => (
-            <ul key={item.id}>
-              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} />
-              <li>{item.title}</li>
-              <p>{item.description}</p>
-            </ul>
-          ))} */}
+          <GenreDetails items={comics} genre="Comic" />
+          <GenreDetails items={series} genre="Series" />
+          <GenreDetails items={stories} genre="Stories" />
+          <GenreDetails items={events} genre="Events" />
         </>
       )}
     </>
   );
-}
+};
 
 export default Detail;
