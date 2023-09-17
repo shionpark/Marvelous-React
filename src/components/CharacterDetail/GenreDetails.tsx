@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  CharacterTitle,
-  CharacterImg,
-  GenreTitle,
-  DetailContainer,
-  DetailImg,
-} from "./DetailsByGenre.styles";
+import { GenreTitle, DetailContainer, DetailImg } from "./GenreDetails.styles";
 
 interface GenreDetailsProps {
   items: any[];
