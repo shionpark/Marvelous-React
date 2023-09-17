@@ -12,7 +12,7 @@ interface CharacterProps {
   coverImg: string;
 }
 
-const Character: React.FC<CharacterProps> = ({ id, name, coverImg }) => {
+const Character = ({ id, name, coverImg }: CharacterProps) => {
   const navigate = useNavigate();
   return (
     <CharacterContainer>

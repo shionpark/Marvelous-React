@@ -11,14 +11,14 @@ import {
   DetailGenres,
 } from "./Characters.styles";
 
-const CharacterDetail: React.FC<CharacterDetailProps> = ({
+const CharacterDetail = ({
   name,
   coverImg,
   comics,
   series,
   stories,
   events,
-}) => {
+}: CharacterDetailProps) => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<CharacterDetails | null>(null);
 
@@ -49,25 +49,25 @@ const CharacterDetail: React.FC<CharacterDetailProps> = ({
       <div>
         <DetailGenres>Comics</DetailGenres>
         {comics.map((i: any, index: number) => (
-          <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
+          <li key={index}>{i.name}</li>
         ))}
       </div>
       <div>
         <DetailGenres>Stories</DetailGenres>
         {stories.map((i: any, index: number) => (
-          <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
+          <li key={index}>{i.name}</li>
         ))}
       </div>
       <div>
         <DetailGenres>Series</DetailGenres>
         {series.map((i: any, index: number) => (
-          <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
+          <li key={index}>{i.name}</li>
         ))}
       </div>
       <div>
         <DetailGenres>Events</DetailGenres>
         {events.map((i: any, index: number) => (
-          <li key={index}>{i.name}</li> // 고유한 key 값을 index로 설정
+          <li key={index}>{i.name}</li>
         ))}
       </div>
     </>
